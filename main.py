@@ -1,3 +1,4 @@
+import pandas
 import streamlit as st
 
 
@@ -13,4 +14,18 @@ with col2:
     I married with Brijesh Patel. He is production engineer. He worked in sai industry as a sr manager at kheda. I have one kids. His name Hetansh Patel. He is only 3.5 Year old. 
     """
     st.info(content)
+
+content2 = """ Below you can find some of the apps i have built in python. Feel free to contect me. """
+st.write(content2)
+
+col3 , col4 = st.columns(2)
+df = pandas.read_csv("data.csv", sep=";")
+
+with col3:
+    for index, row in df[:11].iterrows():
+        st.header(row["title"])
+
+with col4:
+    for index, row in df[11:].iterrows():
+        st.header(row["title"])
 
